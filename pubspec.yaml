@@ -1,0 +1,53 @@
+name: my_puzzle_game
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  carousel_slider: ^4.0.0
+  image: ^3.1.1
+  bloc: ^8.0.2
+  equatable: ^2.0.3
+  flutter_bloc: ^8.0.1
+  just_audio: ^0.9.20
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+      - assets/splashLogo/
+      - assets/backGround/
+      - assets/gameImages/
+      - assets/Music/
+      - assets/SoundEffect/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  fonts:
+     - family: OdibeeSans
+       fonts:
+         - asset: assets/font/OdibeeSans-Regular.ttf
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
