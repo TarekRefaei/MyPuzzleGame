@@ -30,6 +30,11 @@ class _GameChooseState extends State<GameChoose> {
     'assets/gameImages/1.png',
     'assets/gameImages/2.png',
     'assets/gameImages/3.png',
+    'assets/gameImages/4.png',
+    'assets/gameImages/5.png',
+    'assets/gameImages/6.jpg',
+    'assets/gameImages/7.jpg',
+    'assets/gameImages/8.jpg',
   ];
 
   //Default Values
