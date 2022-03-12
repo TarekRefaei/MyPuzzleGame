@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_puzzle_game/constants/values.dart';
 import 'package:my_puzzle_game/models/sliderPiece.dart';
 import 'package:my_puzzle_game/widget/gameBackGround.dart';
 import '../puzzlebloc/puzzle_bloc.dart';
@@ -138,17 +140,34 @@ class RightSideIcons extends StatelessWidget {
     return Column(
       children: [
         CustomIconButton(
-          function: (){
-            showDialog(builder: (BuildContext context) {
-              return Dialog(
-                child: Wrap(
-                  children: [
-                    Lottie.asset('assets/animation/win.json'),
-                    const Text('You Win'),
-                  ],
-                ),
-              );
-            }, context: context);
+          function: () {
+            showDialog(
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return Dialog(
+                    child: Wrap(
+                      children: [
+                        Center(
+                          child: kText(
+                              'You Win', 35, Colors.black, TextAlign.start),
+                        ),
+                        Lottie.asset('assets/animation/win.json'),
+                        Row(
+                          children: [
+                            CustomIconButton(
+                              color: Colors.black,
+                              icon: Icons.add,
+                              function: () {
+                                context.read<PuzzleBloc>().add(Back());
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                context: context);
           },
           icon: Icons.warning_amber_outlined,
           color: Colors.black,
