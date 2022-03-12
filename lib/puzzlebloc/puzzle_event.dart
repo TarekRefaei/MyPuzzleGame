@@ -43,8 +43,6 @@ class Shuffle extends PuzzleEvent{
 
 class Back extends PuzzleEvent{
 
-
-
   @override
   List<Object?> get props => [];
 }

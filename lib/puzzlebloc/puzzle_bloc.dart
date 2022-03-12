@@ -106,7 +106,7 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
         sliderPiece.length) {
       print("Success");
       emit(
-        PuzzleWin(),
+        const PuzzleWin(),
       );
       success = true;
     } else {
