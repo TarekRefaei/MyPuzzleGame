@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_puzzle_game/screens/game_board_screen.dart';
 import 'package:my_puzzle_game/screens/game_choose_screen.dart';
 import 'package:lottie/lottie.dart';
-
 import '../puzzlebloc/puzzle_bloc.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -29,10 +28,10 @@ class LoadingScreen extends StatelessWidget {
             },
           );
         }
-        if(state is GameBack){
+        if (state is GameBack) {
           Timer(
             const Duration(seconds: 3),
-                () {
+            () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -42,10 +41,10 @@ class LoadingScreen extends StatelessWidget {
             },
           );
         }
-        if(state is AnotherGame){
+        if (state is AnotherGame) {
           Timer(
             const Duration(seconds: 3),
-                () {
+            () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -57,9 +56,7 @@ class LoadingScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
-        body: Center(
-          child:Lottie.asset('assets/animation/loading.json')
-        ),
+        body: Center(child: Lottie.asset('assets/animation/loading.json')),
       ),
     );
   }

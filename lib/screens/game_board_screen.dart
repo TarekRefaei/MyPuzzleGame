@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-import 'package:my_puzzle_game/constants/values.dart';
 import 'package:my_puzzle_game/models/sliderPiece.dart';
 import 'package:my_puzzle_game/screens/loading_screen.dart';
 import 'package:my_puzzle_game/widget/gameBackGround.dart';
@@ -38,7 +36,6 @@ class GameBoard extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const LoadingScreen()),
           );
         }
-
       },
       child: SafeArea(
         child: LayoutBuilder(
@@ -122,9 +119,7 @@ class GameBoard extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const RightSideIcons(),
                             ChosenImageSnapShot(size: size),
-                            const LeftSideIcons(),
                           ],
                         ),
                       ],
@@ -136,72 +131,6 @@ class GameBoard extends StatelessWidget {
           },
         ),
       ),
-    );
-  }
-}
-
-class RightSideIcons extends StatelessWidget {
-  const RightSideIcons({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomIconButton(
-          function: () {
-            showDialog(
-                barrierDismissible: false,
-                builder: (BuildContext context) {
-                  return Dialog(
-                    child: Wrap(
-                      children: [
-                        Center(
-                          child: kText(
-                              'You Win', 35, Colors.black, TextAlign.start),
-                        ),
-                        Lottie.asset('assets/animation/win.json'),
-                        Row(
-                          children: [
-                            CustomIconButton(
-                              color: Colors.black,
-                              icon: Icons.add,
-                              function: () {
-                                context.read<PuzzleBloc>().add(Back());
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                context: context);
-          },
-          icon: Icons.warning_amber_outlined,
-          color: Colors.black,
-        ),
-      ],
-    );
-  }
-}
-
-class LeftSideIcons extends StatelessWidget {
-  const LeftSideIcons({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomIconButton(
-          function: () {},
-          icon: Icons.exit_to_app,
-          color: Colors.black,
-        ),
-      ],
     );
   }
 }

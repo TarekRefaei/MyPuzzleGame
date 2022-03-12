@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 import 'dart:typed_data';
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:my_puzzle_game/models/imagetofile.dart';
 import 'package:my_puzzle_game/models/sliderPiece.dart';
 
@@ -113,7 +112,7 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
     } else {
       success = false;
       moves++;
-      emit(PuzzleEngineLoop(sliderPiece, moves));
+      emit(PuzzleEngineLoop(sliderPieces: sliderPiece, moves: moves));
     }
   }
 
