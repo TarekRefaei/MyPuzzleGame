@@ -105,6 +105,9 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
             .length ==
         sliderPiece.length) {
       print("Success");
+      emit(
+        PuzzleWin(),
+      );
       success = true;
     } else {
       success = false;
@@ -124,7 +127,7 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
     for (var i = 0; i < value * 20; i++) {
       for (var j = 0; j < value / 2; j++) {
         SliderPieces emptyObject =
-        sliderPiece.firstWhere((element) => element.empty);
+            sliderPiece.firstWhere((element) => element.empty);
         int emptyIndex = emptyObject.indexCurrent;
         process.add(emptyIndex);
         int randKey;
@@ -140,9 +143,7 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
       }
     }
 
-    emit(
-      PuzzleShuffle(sliderPiece,moves)
-    );
+    emit(PuzzleShuffle(sliderPiece, moves));
     emit(PuzzleChosenFirstGame(sliderPiece, imgPath));
   }
 

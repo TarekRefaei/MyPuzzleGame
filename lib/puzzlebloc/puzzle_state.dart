@@ -52,19 +52,23 @@ class PuzzleLoop extends PuzzleState {
 }
 
 class PuzzleShuffle extends PuzzleState {
-
   final List<SliderPieces> sliderPieces;
   final int moves;
 
-  const PuzzleShuffle(this.sliderPieces,this.moves);
+  const PuzzleShuffle(this.sliderPieces, this.moves);
 
   @override
-  List<Object?> get props => [sliderPieces,moves];
+  List<Object?> get props => [sliderPieces, moves];
 }
 
-class GameBack extends PuzzleState{
-
+class PuzzleWin extends PuzzleState {
   @override
   List<Object?> get props => [];
 
+  const PuzzleWin();
+}
+
+class GameBack extends PuzzleState {
+  @override
+  List<Object?> get props => [];
 }

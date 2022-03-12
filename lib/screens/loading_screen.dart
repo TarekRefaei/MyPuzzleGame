@@ -16,19 +16,19 @@ class LoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<PuzzleBloc, PuzzleState>(
       listener: (context, state) {
-        // if (state is PuzzleChosenLoadingEnded) {
-        //   Timer(
-        //     const Duration(seconds: 3),
-        //     () {
-        //       Navigator.push(
-        //         context,
-        //         MaterialPageRoute(
-        //           builder: (context) => GameBoard(),
-        //         ),
-        //       );
-        //     },
-        //   );
-        // }
+        if (state is PuzzleChosenLoadingEnded) {
+          Timer(
+            const Duration(seconds: 3),
+            () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GameBoard(),
+                ),
+              );
+            },
+          );
+        }
         if(state is GameBack){
           Timer(
             const Duration(seconds: 3),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:my_puzzle_game/models/sliderPiece.dart';
 import 'package:my_puzzle_game/widget/gameBackGround.dart';
 import '../puzzlebloc/puzzle_bloc.dart';
@@ -90,7 +92,11 @@ class GameBoard extends StatelessWidget {
                                     puzzlePiecesList: puzzlePiecesList,
                                     isSuccess: false,
                                   );
-                                } else {
+                                }
+                                // else if (state is PuzzleWin) {
+                                //   return const GameWinnerScreen();
+                                // }
+                                else {
                                   return const Text("null");
                                 }
                               },
@@ -132,8 +138,19 @@ class RightSideIcons extends StatelessWidget {
     return Column(
       children: [
         CustomIconButton(
-          function: () {},
-          icon: Icons.warning,
+          function: (){
+            showDialog(builder: (BuildContext context) {
+              return Dialog(
+                child: Wrap(
+                  children: [
+                    Lottie.asset('assets/animation/win.json'),
+                    const Text('You Win'),
+                  ],
+                ),
+              );
+            }, context: context);
+          },
+          icon: Icons.warning_amber_outlined,
           color: Colors.black,
         ),
       ],
