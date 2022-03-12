@@ -45,7 +45,7 @@ class LoadingScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: Center(
-          child:Lottie.asset('assets/animation/loading.json'),
+          child:Lottie.asset('assets/animation/loading.json')
         ),
       ),
     );
