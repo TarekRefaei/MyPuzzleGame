@@ -36,7 +36,7 @@ class PuzzleEngineLoop extends PuzzleState {
   final List<SliderPieces> sliderPieces;
   final int moves;
 
-  const PuzzleEngineLoop(this.sliderPieces, this.moves);
+  const PuzzleEngineLoop(this.sliderPieces, this.moves,);
 
   @override
   List<Object?> get props => [sliderPieces, moves];

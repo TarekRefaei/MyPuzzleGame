@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_puzzle_game/widget/timer.dart';
-
 import '../constants/values.dart';
 import '../puzzlebloc/puzzle_bloc.dart';
 
@@ -13,6 +11,7 @@ class TimerMovesPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int moves = 0;
+    int seconds = 0;
     return Material(
       color: Colors.transparent,
       child: Padding(
@@ -24,20 +23,18 @@ class TimerMovesPanel extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
-          //need Some Improvements
           child: SizedBox(
             height: size.height * 0.1,
             width: size.width,
             child: BlocBuilder<PuzzleBloc, PuzzleState>(
               builder: (context, state) {
-                if (state is PuzzleChosenFirstGame)
-                {
+                if (state is PuzzleChosenFirstGame){
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       kText('Moves', 30, Colors.black, TextAlign.center),
                       kText(
-                          moves.toString(), 30, Colors.black, TextAlign.center),
+                          '0', 30, Colors.black, TextAlign.center),
                       const SizedBox(
                         width: 15,
                       ),
@@ -55,8 +52,8 @@ class TimerMovesPanel extends StatelessWidget {
                       const SizedBox(
                         width: 15,
                       ),
-                      kText('Timer', 30, Colors.black, TextAlign.center),
-                      kText('', 30, Colors.black, TextAlign.center),
+                      // kText('Timer', 30, Colors.black, TextAlign.center),
+                      // kText(seconds.toString(), 30, Colors.black, TextAlign.center),
                     ],
                   );
                 }
@@ -70,8 +67,8 @@ class TimerMovesPanel extends StatelessWidget {
                       const SizedBox(
                         width: 15,
                       ),
-                      kText('Timer', 30, Colors.black, TextAlign.center),
-                      kText('', 30, Colors.black, TextAlign.center),
+                      // kText('Timer', 30, Colors.black, TextAlign.center),
+                      // kText(seconds.toString(), 30, Colors.black, TextAlign.center),
                     ],
                   );
                 }
@@ -86,8 +83,8 @@ class TimerMovesPanel extends StatelessWidget {
                       const SizedBox(
                         width: 15,
                       ),
-                      kText('Timer', 30, Colors.black, TextAlign.center),
-                      kText('', 30, Colors.black, TextAlign.center),
+                      // kText('Timer', 30, Colors.black, TextAlign.center),
+                      // kText('', 30, Colors.black, TextAlign.center),
                     ],
                   );
                 }
