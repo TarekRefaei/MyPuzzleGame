@@ -54,7 +54,7 @@ class PuzzleStackBoard extends StatelessWidget {
             left: element.posCurrent.dx,
             top: element.posCurrent.dy,
             curve: Curves.easeIn,
-            duration: const Duration(milliseconds: 50),
+            duration: const Duration(milliseconds: 200),
             child: GestureDetector(
               onTap: () {
                 context.read<PuzzleBloc>().add(
