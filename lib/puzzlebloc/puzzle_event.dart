@@ -24,15 +24,13 @@ class ChangePos extends PuzzleEvent {
   final List<SliderPieces> sliderPieces;
   final int indexCurrent;
 
-  const ChangePos({required this.indexCurrent,required this.sliderPieces});
-
+  const ChangePos({required this.indexCurrent, required this.sliderPieces});
 
   @override
-  List<Object> get props => [indexCurrent,sliderPieces];
+  List<Object> get props => [indexCurrent, sliderPieces];
 }
 
-class Shuffle extends PuzzleEvent{
-
+class Shuffle extends PuzzleEvent {
   final List<SliderPieces> sliderPieces;
 
   const Shuffle({required this.sliderPieces});
@@ -41,8 +39,12 @@ class Shuffle extends PuzzleEvent{
   List<Object?> get props => [];
 }
 
-class Back extends PuzzleEvent{
+class Back extends PuzzleEvent {
+  @override
+  List<Object?> get props => [];
+}
 
+class NewGame extends PuzzleEvent {
   @override
   List<Object?> get props => [];
 }

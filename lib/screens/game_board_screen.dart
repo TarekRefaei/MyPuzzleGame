@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_puzzle_game/constants/values.dart';
 import 'package:my_puzzle_game/models/sliderPiece.dart';
+import 'package:my_puzzle_game/screens/loading_screen.dart';
 import 'package:my_puzzle_game/widget/gameBackGround.dart';
+import 'package:my_puzzle_game/widget/windialog.dart';
 import '../puzzlebloc/puzzle_bloc.dart';
 import '../widget/iconButtons.dart';
 import '../widget/imagesnap.dart';
@@ -25,6 +25,20 @@ class GameBoard extends StatelessWidget {
         if (state is GameBack) {
           Navigator.pop(context);
         }
+        if (state is PuzzleWin) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Winner()),
+          );
+        }
+        if (state is AnotherGame) {
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const LoadingScreen()),
+          );
+        }
+
       },
       child: SafeArea(
         child: LayoutBuilder(
@@ -94,11 +108,7 @@ class GameBoard extends StatelessWidget {
                                     puzzlePiecesList: puzzlePiecesList,
                                     isSuccess: false,
                                   );
-                                }
-                                // else if (state is PuzzleWin) {
-                                //   return const GameWinnerScreen();
-                                // }
-                                else {
+                                } else {
                                   return const Text("null");
                                 }
                               },

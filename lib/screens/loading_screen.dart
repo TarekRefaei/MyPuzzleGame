@@ -42,6 +42,19 @@ class LoadingScreen extends StatelessWidget {
             },
           );
         }
+        if(state is AnotherGame){
+          Timer(
+            const Duration(seconds: 3),
+                () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const GameChoose(),
+                ),
+              );
+            },
+          );
+        }
       },
       child: Scaffold(
         body: Center(

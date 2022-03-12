@@ -28,6 +28,7 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
     on<ChangePos>(onGameEngine);
     on<Shuffle>(onShuffle);
     on<Back>(onGameBack);
+    on<NewGame>(onNewGame);
   }
 
   Future onPuzzleChosen(ChoosePuzzle event, Emitter<PuzzleState> emit) async {
@@ -105,16 +106,15 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
             .length ==
         sliderPiece.length) {
       print("Success");
-      emit(
-        const PuzzleWin(),
-      );
       success = true;
+      emit(
+        PuzzleWin(),
+      );
     } else {
       success = false;
       moves++;
+      emit(PuzzleEngineLoop(sliderPiece, moves));
     }
-
-    emit(PuzzleEngineLoop(sliderPiece, moves));
   }
 
   FutureOr<void> onShuffle(Shuffle event, Emitter<PuzzleState> emit) {
@@ -148,11 +148,18 @@ class PuzzleBloc extends Bloc<PuzzleEvent, PuzzleState> {
   }
 
   FutureOr<void> onGameBack(Back event, Emitter<PuzzleState> emit) {
-    // sliderPiece = <SliderPieces>[];
-    // value = 0;
-    // moves = 0;
-    // imgPath = '';
-
+    sliderPiece = <SliderPieces>[];
+    value = 0;
+    moves = 0;
+    imgPath = '';
     emit(GameBack());
+  }
+
+  FutureOr<void> onNewGame(NewGame event, Emitter<PuzzleState> emit) {
+    sliderPiece = <SliderPieces>[];
+    value = 0;
+    moves = 0;
+    imgPath = '';
+    emit(AnotherGame());
   }
 }

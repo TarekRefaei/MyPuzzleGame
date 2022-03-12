@@ -64,8 +64,11 @@ class PuzzleShuffle extends PuzzleState {
 class PuzzleWin extends PuzzleState {
   @override
   List<Object?> get props => [];
+}
 
-  const PuzzleWin();
+class AnotherGame extends PuzzleState {
+  @override
+  List<Object?> get props => [];
 }
 
 class GameBack extends PuzzleState {
