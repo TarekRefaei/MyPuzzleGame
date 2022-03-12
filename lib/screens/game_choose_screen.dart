@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_puzzle_game/constants/values.dart';
 import 'package:my_puzzle_game/screens/game_board_screen.dart';
@@ -121,7 +122,7 @@ class _GameChooseState extends State<GameChoose> {
               GameBackground(size: size),
               Center(
                 child: SizedBox(
-                  width: size.width - 4.0,
+                  width: size.width - 1.0,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -129,7 +130,7 @@ class _GameChooseState extends State<GameChoose> {
                       HeaderTitle(size: size, bannerTitle: 'Puzzle Game'),
                       kText(chooseImage, 30, Colors.black, TextAlign.center),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 0),
                         child: CarouselSlider.builder(
                           itemCount: imageAssets.length,
                           itemBuilder: (context, index, realIndex) {
@@ -149,6 +150,7 @@ class _GameChooseState extends State<GameChoose> {
                       ),
                       kText(chooseLevel, 30, Colors.black, TextAlign.center),
                       Wrap(
+                        alignment: WrapAlignment.center,
                         direction: Axis.horizontal,
                         children: [
                           customRadioButton('Test', test, Colors.blue),
